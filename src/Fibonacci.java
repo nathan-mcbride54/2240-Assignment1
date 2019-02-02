@@ -2,6 +2,7 @@ public class Fibonacci {
 
     // This is an iterative method that prints the fibonacci sequence and returns the amount of
     // It gets passed an integer of the number of iterations to complete and returns the elapsed time of the method.
+    // This code was inspired from multiple online sources, however it has been modified to function for my purposes.
     public static long fiboSeriesIte(long iterations){
         long startTime = System.nanoTime(); // Start the clock.
         long n1=0, n2=1, n3, i ;
@@ -31,6 +32,7 @@ public class Fibonacci {
     // This is a recursive method that prints the fibonacci sequence.
     // It uses a boolean flag to determine what value should be printed when the method call takes place.
     // It determines the value to be printed by calling itself with x-1 and with x-2 and adding them to get the proper number in the sequence.
+    // This code was inspired by multiple online sources and revised from its original functionality to print out values during execution.
     public static long fibonacciRecursionEngine(long x, boolean print){
 
         if (x==0||x==1) {
