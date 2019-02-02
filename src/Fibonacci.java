@@ -1,4 +1,4 @@
-public class fibonacci {
+public class Fibonacci {
 
     public static long fiboSeriesIte(long iterations){
         long startTime = System.nanoTime();
@@ -15,7 +15,11 @@ public class fibonacci {
         return endTime - startTime;
     }
 
-    public static long fiboSeriesRec(long x, boolean print){
+    public static long fiboSeriesRec(int iterations){
+
+
+    }
+    public static long fibonacciRecursionEngine(long x, boolean print){
 
         if (x==0||x==1) {
             if (print){
@@ -24,11 +28,11 @@ public class fibonacci {
         }
         else {
             if (print) {
-                x = fiboSeriesRec(  x -1 , true ) + fiboSeriesRec(x -2 , false);
+                x = fibonacciRecursionEngine(  x -1 , true ) + fibonacciRecursionEngine(x -2 , false);
                 System.out.print(x + " ");
             }
             else {
-                x = fiboSeriesRec(  x -1 , false ) + fiboSeriesRec(x -2 , false);
+                x = fibonacciRecursionEngine(  x -1 , false ) + fibonacciRecursionEngine(x -2 , false);
             }
         }
         return x;
