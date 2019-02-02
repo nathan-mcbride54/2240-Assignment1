@@ -75,4 +75,13 @@ public class Main {
         }
         return userInt;
     }
+
+    public static void showResults(long timeElapsed, long fibonacciNumber, String methodType){
+        System.out.println();
+        System.out.println("Method type: " + methodType);
+        System.out.println("Fibonacci degree: " + fibonacciNumber);
+        System.out.println("Elapsed time in nanoseconds is: " + timeElapsed);
+        System.out.println("Elapsed time in milliseconds is: " + timeElapsed/1000000);
+        System.out.println("---------------------------------------------");
+    }
 }
