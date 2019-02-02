@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -29,20 +30,22 @@ public class Main {
 
                 case "iteration":
                     iterations = takeUserInputInt(); // Set the number of fibonacci numbers to evaluate to.
-                    timeElapsedIterative = Fibonacci.fiboSeriesIte(iterations);
-                    showResults(timeElapsedIterative, iterations, "Iterative");
+                    timeElapsedIterative = Fibonacci.fiboSeriesIte(iterations); // Record the time elapsed from the method and print the sequence.
+                    showResults(timeElapsedIterative, iterations, "Iterative"); // Output results to user.
                     break;
 
                 case "recursion":
-                    iterations = takeUserInputInt();
-                    timeElapsedRecursive = Fibonacci.fiboSeriesRec(iterations);
-                    showResults(timeElapsedRecursive, iterations, "Recursive");
+                    iterations = takeUserInputInt(); // Set the number of fibonacci numbers to evaluate to.
+                    timeElapsedRecursive = Fibonacci.fiboSeriesRec(iterations); // Record the time elapsed from the method and print the sequence.
+                    showResults(timeElapsedRecursive, iterations, "Recursive"); // Output results to user.
                     break;
 
                 case "both":
                     iterations = takeUserInputInt();
+
                     timeElapsedIterative = Fibonacci.fiboSeriesIte(iterations);
                     showResults(timeElapsedIterative, iterations, "Iterative");
+
                     timeElapsedRecursive = Fibonacci.fiboSeriesRec(iterations);
                     showResults(timeElapsedRecursive, iterations, "Recursive");
                     break;
@@ -58,16 +61,20 @@ public class Main {
                 case "exit":
                     exit = true;
                     break;
+
+                 default:
+                     System.out.println("INVALID ENTRY");
             }
         }
     }
 
+    // This method is called to take an integer from the user to decide how many fibonacci numbers to print.
     private static int takeUserInputInt(){
-        Scanner scanner = new Scanner(System.in); //Set a new scanner to read in user input.
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a positive integer to evaluate to: $ ");
         int userInt = scanner.nextInt();
-        if(userInt > 0){
-            return userInt; //To validate that the user entered a positive integer.
+        if(userInt > 0){ //To validate that the user entered a positive integer.
+            return userInt;
         }
         else{
             System.out.println("ERROR: Invalid Entry");
@@ -76,31 +83,31 @@ public class Main {
         return userInt;
     }
 
-    public static void showResults(long timeElapsed, long fibonacciNumber, String methodType){
+    // This method prints the results of testing the fibonacci methods.
+    public static void showResults(long timeElapsed, int iterations, String methodType){
         System.out.println();
         System.out.println("Method type: " + methodType);
-        System.out.println("Fibonacci degree: " + fibonacciNumber);
+        System.out.println("Fibonacci degree: " + iterations);
         System.out.println("Elapsed time in nanoseconds is: " + timeElapsed);
         System.out.println("Elapsed time in milliseconds is: " + timeElapsed/1000000);
         System.out.println("---------------------------------------------");
     }
 
+    // This method was created to automate testing of the program. It compares the results of the two methods after running them one after another.
     public static void testCases(){
         System.out.println("NOW TESTING");
         System.out.println("-----------");
         int[] testCases = {10, 20, 30, 40, 50};
         for(int testCase : testCases){
 
-            System.out.print("0 ");
-            long timeElapsedRecursive = Fibonacci.fiboSeriesRec(testCase);
+            long timeElapsedRecursive = Fibonacci.fiboSeriesRec(testCase); // Output the sequence recursively and record the elapsed time.
             System.out.println();
-            long timeElapsedIterative = Fibonacci.fiboSeriesIte(testCase);
+            long timeElapsedIterative = Fibonacci.fiboSeriesIte(testCase); // Output the sequence iteratively and record the elapsed time.
             System.out.println();
             System.out.println("TEST CASE: " + testCase);
-            System.out.println("RECURSIVE: " + timeElapsedRecursive + " nanoseconds");
-            System.out.println("ITERATIVE: " + timeElapsedIterative + " nanoseconds");
+            System.out.println("RECURSIVE: " + timeElapsedRecursive + " nanoseconds"); // Print elapsed time for recursion method.
+            System.out.println("ITERATIVE: " + timeElapsedIterative + " nanoseconds"); // Print elapsed time for iteration method.
             System.out.println("--------------------------------");
-
         }
     }
 }
