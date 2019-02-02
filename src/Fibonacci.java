@@ -16,9 +16,14 @@ public class Fibonacci {
     }
 
     public static long fiboSeriesRec(int iterations){
-
-        return 0;
+        long x = iterations -1;
+        long startTime = System.nanoTime();
+        System.out.print("0 ");
+        fibonacciRecursionEngine(x, true);
+        long endTime = System.nanoTime();
+        return endTime - startTime;
     }
+
     public static long fibonacciRecursionEngine(long x, boolean print){
 
         if (x==0||x==1) {
