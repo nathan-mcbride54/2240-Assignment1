@@ -84,4 +84,23 @@ public class Main {
         System.out.println("Elapsed time in milliseconds is: " + timeElapsed/1000000);
         System.out.println("---------------------------------------------");
     }
+
+    public static void testCases(){
+        System.out.println("NOW TESTING");
+        System.out.println("-----------");
+        int[] testCases = {10, 20, 30, 40, 50};
+        for(int testCase : testCases){
+
+            System.out.print("0 ");
+            long timeElapsedRecursive = Fibonacci.fiboSeriesRec(testCase);
+            System.out.println();
+            long timeElapsedIterative = Fibonacci.fiboSeriesIte(testCase);
+            System.out.println();
+            System.out.println("TEST CASE: " + testCase);
+            System.out.println("RECURSIVE: " + timeElapsedRecursive + " nanoseconds");
+            System.out.println("ITERATIVE: " + timeElapsedIterative + " nanoseconds");
+            System.out.println("--------------------------------");
+
+        }
+    }
 }
