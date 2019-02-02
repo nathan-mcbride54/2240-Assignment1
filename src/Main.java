@@ -61,4 +61,18 @@ public class Main {
             }
         }
     }
+
+    private static int takeUserInputInt(){
+        Scanner scanner = new Scanner(System.in); //Set a new scanner to read in user input.
+        System.out.print("Enter a positive integer to evaluate to: $ ");
+        int userInt = scanner.nextInt();
+        if(userInt > 0){
+            return userInt; //To validate that the user entered a positive integer.
+        }
+        else{
+            System.out.println("ERROR: Invalid Entry");
+            takeUserInputInt(); //If they entered a number less than zero, call method again to get positive integer.
+        }
+        return userInt;
+    }
 }
